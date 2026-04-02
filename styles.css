@@ -2330,6 +2330,256 @@ a.phone-number:hover {
   line-height: 1;
 }
 
+/* === JAPANESE ELEMENTS === */
+
+/* --- Floating Sakura Petals --- */
+.sakura-container {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.sakura-petal {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: sakuraFall linear forwards;
+}
+
+.sakura-petal::before,
+.sakura-petal::after {
+  content: '';
+  position: absolute;
+  background: rgba(255, 183, 197, 0.7);
+  border-radius: 50% 0 50% 0;
+}
+
+.sakura-petal::before {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transform: rotate(15deg);
+}
+
+.sakura-petal::after {
+  width: 80%;
+  height: 80%;
+  top: 10%;
+  left: 30%;
+  transform: rotate(-30deg);
+  opacity: 0.8;
+}
+
+@keyframes sakuraFall {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px) rotate(0deg) translateX(0px);
+  }
+  10% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(calc(100vh + 20px)) rotate(360deg) translateX(var(--sakura-drift, 100px));
+  }
+}
+
+/* --- Vertical Japanese Text (Hero Sides) --- */
+.hero-vertical-jp {
+  position: absolute;
+  z-index: 3;
+  font-family: var(--font-jp);
+  font-size: 0.85rem;
+  letter-spacing: 0.6em;
+  writing-mode: vertical-rl;
+  color: rgba(245, 240, 232, 0.12);
+  pointer-events: none;
+  opacity: 0;
+  animation: heroReveal 1.2s var(--ease-out-expo) 3.8s forwards;
+}
+
+.hero-vertical-left {
+  left: 2.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hero-vertical-right {
+  right: 2.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@media (max-width: 1024px) {
+  .hero-vertical-jp {
+    display: none;
+  }
+}
+
+/* --- Seigaiha Wave Divider --- */
+.seigaiha-divider {
+  width: 100%;
+  height: 40px;
+  position: relative;
+  overflow: hidden;
+  background: var(--color-bg);
+}
+
+.seigaiha-divider::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -100%;
+  left: -50%;
+  background:
+    radial-gradient(circle at 50% 100%, transparent 20px, rgba(198, 40, 40, 0.08) 20px, rgba(198, 40, 40, 0.08) 22px, transparent 22px) 0 0 / 44px 44px,
+    radial-gradient(circle at 50% 100%, transparent 12px, rgba(198, 40, 40, 0.04) 12px, rgba(198, 40, 40, 0.04) 14px, transparent 14px) 22px 0 / 44px 44px;
+  background-repeat: repeat-x;
+  animation: seigaihaScroll 20s linear infinite;
+}
+
+.seigaiha-flip::before {
+  animation-direction: reverse;
+}
+
+@keyframes seigaihaScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-44px); }
+}
+
+/* --- Section Kanji Watermark Background --- */
+.section-kanji-bg {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+  font-family: var(--font-jp);
+  font-size: clamp(12rem, 25vw, 22rem);
+  font-weight: 900;
+  color: var(--color-cream);
+  opacity: 0.018;
+  pointer-events: none;
+  line-height: 1;
+  z-index: 0;
+  user-select: none;
+}
+
+.about .section-kanji-bg {
+  right: auto;
+  left: -5%;
+}
+
+.gallery .section-kanji-bg {
+  right: 3%;
+  top: 15%;
+  transform: none;
+}
+
+.features .section-kanji-bg {
+  right: auto;
+  left: 2%;
+}
+
+.reservation .section-kanji-bg {
+  opacity: 0.025;
+}
+
+/* --- Enso Circle (Philosophy Section) --- */
+.enso-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(300px, 40vw, 500px);
+  height: clamp(300px, 40vw, 500px);
+  border-radius: 50%;
+  border: 3px solid rgba(198, 40, 40, 0.12);
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  animation: ensoReveal 2s var(--ease-out-expo) forwards;
+  animation-play-state: paused;
+}
+
+.philosophy .enso-circle {
+  border-width: 2px 3px 4px 2px;
+  border-style: solid;
+  border-color: rgba(198, 40, 40, 0.1) rgba(198, 40, 40, 0.15) rgba(198, 40, 40, 0.08) rgba(198, 40, 40, 0.12);
+}
+
+@keyframes ensoReveal {
+  0% {
+    opacity: 0;
+    clip-path: circle(0% at 50% 0%);
+  }
+  100% {
+    opacity: 1;
+    clip-path: circle(100% at 50% 50%);
+  }
+}
+
+/* --- Philosophy JP Text --- */
+.philosophy-jp {
+  font-family: var(--font-jp);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  color: rgba(198, 40, 40, 0.15);
+  letter-spacing: 0.8em;
+  margin-top: 3rem;
+  font-weight: 400;
+}
+
+/* --- Asanoha Border Pattern --- */
+.asanoha-border-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--color-red) 0px,
+    var(--color-red) 6px,
+    transparent 6px,
+    transparent 12px,
+    rgba(198, 40, 40, 0.3) 12px,
+    rgba(198, 40, 40, 0.3) 15px,
+    transparent 15px,
+    transparent 24px
+  );
+  opacity: 0.4;
+}
+
+/* --- Reservation JP Proverb --- */
+.reservation-jp-proverb {
+  font-family: var(--font-jp);
+  font-size: 0.9rem;
+  color: var(--color-text-dim);
+  letter-spacing: 0.1em;
+  margin-bottom: 2rem;
+  font-style: italic;
+  opacity: 0.6;
+}
+
+.reservation-jp-proverb::before {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 1px;
+  background: var(--color-red);
+  margin: 0 auto 1rem;
+  opacity: 0.5;
+}
+
 /* === RESPONSIVE === */
 @media screen and (max-width: 1024px) {
   .nav-links {

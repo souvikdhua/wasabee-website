@@ -149,6 +149,59 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { threshold: 0.5 });
     
     counters.forEach(el => counterObserver.observe(el));
+
+    // === SAKURA PETALS ===
+    const sakuraContainer = document.getElementById('sakuraContainer');
+    if (sakuraContainer) {
+      function createPetal() {
+        const petal = document.createElement('div');
+        petal.className = 'sakura-petal';
+        
+        const size = 8 + Math.random() * 14;
+        const startX = Math.random() * 100;
+        const duration = 8 + Math.random() * 12;
+        const delay = Math.random() * 15;
+        const drift = -80 + Math.random() * 160;
+        
+        petal.style.cssText = `
+          left: ${startX}%;
+          top: -20px;
+          width: ${size}px;
+          height: ${size}px;
+          --sakura-drift: ${drift}px;
+          animation-duration: ${duration}s;
+          animation-delay: ${delay}s;
+        `;
+        
+        sakuraContainer.appendChild(petal);
+
+        // Remove and recreate after animation completes
+        setTimeout(() => {
+          petal.remove();
+          createPetal();
+        }, (delay + duration) * 1000);
+      }
+
+      // Create initial batch of petals
+      const petalCount = window.innerWidth < 768 ? 12 : 25;
+      for (let i = 0; i < petalCount; i++) {
+        createPetal();
+      }
+    }
+
+    // === ENSO CIRCLE REVEAL ===
+    const ensoCircle = document.querySelector('.enso-circle');
+    if (ensoCircle) {
+      const ensoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            ensoCircle.style.animationPlayState = 'running';
+            ensoObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+      ensoObserver.observe(ensoCircle.closest('.philosophy') || ensoCircle);
+    }
   }
 
   // === GALLERY LIGHTBOX ===
