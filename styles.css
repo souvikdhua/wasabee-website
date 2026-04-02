@@ -1101,7 +1101,46 @@ button {
   border-right: 1px solid rgba(245, 240, 232, 0.05);
 }
 
+/* === DIET ICONS === */
+.diet-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 12px;
+  height: 12px;
+  border-radius: 1px;
+  margin-right: 0.8rem;
+  flex-shrink: 0;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}
+
+.diet-icon::after {
+  content: '';
+  display: block;
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+}
+
+.diet-icon.veg {
+  border: 1px solid #4caf50;
+}
+.diet-icon.veg::after {
+  background: #4caf50;
+}
+
+.diet-icon.non-veg {
+  border: 1px solid var(--color-red);
+}
+.diet-icon.non-veg::after {
+  background: var(--color-red);
+}
+
 .menu-item-info h4 {
+  display: flex;
+  align-items: center;
   font-family: var(--font-display);
   font-size: 1.15rem;
   font-weight: 600;
@@ -1110,8 +1149,16 @@ button {
   transition: color 0.3s;
 }
 
-.menu-item:hover .menu-item-info h4 {
+.menu-item.non-veg h4 {
   color: var(--color-red);
+}
+
+.menu-item.non-veg:hover h4 {
+  color: #ff5252;
+}
+
+.menu-item:hover .menu-item-info h4 {
+  color: #ff5252;
 }
 
 .menu-item-info .item-jp {
@@ -1165,9 +1212,9 @@ button {
 }
 
 .menu-badge.non-veg {
-  background: rgba(198, 40, 40, 0.15);
-  color: var(--color-red-bright);
-  border: 1px solid rgba(198, 40, 40, 0.3);
+  background: rgba(198, 40, 40, 0.2);
+  color: #ff5252;
+  border: 1px solid rgba(198, 40, 40, 0.4);
 }
 
 .menu-badge.chef {
