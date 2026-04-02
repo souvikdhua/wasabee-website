@@ -1253,6 +1253,7 @@ button {
   font-size: 0.85rem;
   color: var(--color-text-dim);
   line-height: 1.7;
+  padding-right: 3.5rem;
 }
 
 .feature-card-arrow {
