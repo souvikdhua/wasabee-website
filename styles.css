@@ -1,6 +1,6 @@
 /* ========================================
    WASABEE - Oriental Cuisine
-   Inspired by sushi-jiro.jp
+   Inspired by sushi-jiro.jp1
    ======================================== */
 
 /* === FONTS === */
@@ -116,7 +116,11 @@ img {
 }
 
 @media (max-width: 1024px) {
-  .cursor-outer, .cursor-inner { display: none; }
+
+  .cursor-outer,
+  .cursor-inner {
+    display: none;
+  }
 }
 
 a {
@@ -338,7 +342,7 @@ button {
 .nav-logo-img {
   height: 56px;
   width: auto;
-  filter: invert(1) brightness(2) drop-shadow(0 2px 8px rgba(0,0,0,0.4));
+  filter: invert(1) brightness(2) drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
   transition: all 0.6s var(--ease-out-expo);
 }
 
@@ -567,16 +571,38 @@ button {
   animation: heroSlideshow 18s cubic-bezier(0.25, 1, 0.5, 1) infinite, kenBurns 25s ease-in-out infinite alternate;
 }
 
-.hero-bg img.slide-1 { animation-delay: 0s, 0s; }
-.hero-bg img.slide-2 { animation-delay: 6s, 4s; }
-.hero-bg img.slide-3 { animation-delay: 12s, 8s; }
+.hero-bg img.slide-1 {
+  animation-delay: 0s, 0s;
+}
+
+.hero-bg img.slide-2 {
+  animation-delay: 6s, 4s;
+}
+
+.hero-bg img.slide-3 {
+  animation-delay: 12s, 8s;
+}
 
 @keyframes heroSlideshow {
-  0%   { opacity: 0; }
-  8%   { opacity: 1; }
-  33%  { opacity: 1; }
-  41%  { opacity: 0; }
-  100% { opacity: 0; }
+  0% {
+    opacity: 0;
+  }
+
+  8% {
+    opacity: 1;
+  }
+
+  33% {
+    opacity: 1;
+  }
+
+  41% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes kenBurns {
@@ -1146,16 +1172,33 @@ button {
 }
 
 .diet-icon.veg {
-  border: 1px solid #4caf50;
+  border: 1px solid rgba(245, 240, 232, 0.3);
 }
 .diet-icon.veg::after {
-  background: #4caf50;
+  background: rgba(245, 240, 232, 0.3);
 }
 
 .diet-icon.non-veg {
-  border: 1px solid var(--color-red);
+  border: 1px solid rgba(245, 240, 232, 0.3);
 }
 .diet-icon.non-veg::after {
+  background: rgba(245, 240, 232, 0.3);
+}
+
+/* Hover States for Diet Icons */
+.menu-item:hover .diet-icon.veg {
+  border-color: #4caf50;
+  box-shadow: 0 0 8px rgba(76, 175, 80, 0.4);
+}
+.menu-item:hover .diet-icon.veg::after {
+  background: #4caf50;
+}
+
+.menu-item:hover .diet-icon.non-veg {
+  border-color: var(--color-red);
+  box-shadow: 0 0 8px rgba(229, 57, 53, 0.4);
+}
+.menu-item:hover .diet-icon.non-veg::after {
   background: var(--color-red);
 }
 
@@ -1171,11 +1214,11 @@ button {
 }
 
 .menu-item.non-veg h4 {
-  color: var(--color-red);
+  color: var(--color-cream); /* White/Cream by default */
 }
 
 .menu-item.non-veg:hover h4 {
-  color: #ff5252;
+  color: var(--color-red); /* Pops red on hover */
 }
 
 .menu-item:hover .menu-item-info h4 {
@@ -1285,6 +1328,7 @@ button {
   transition: transform 1s var(--ease-out-expo), filter 0.6s;
   filter: brightness(0.85) saturate(0.9);
 }
+
 .gallery-item.tall {
   grid-row: span 2;
 }
@@ -1463,8 +1507,13 @@ button {
 }
 
 @keyframes reviewMarquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(calc(-50% - 1rem)); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-50% - 1rem));
+  }
 }
 
 .review-card {
@@ -1479,12 +1528,12 @@ button {
   text-decoration: none;
   color: var(--color-cream);
   transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
 .review-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
 }
 
 .review-header {
@@ -1655,6 +1704,7 @@ button {
   background: transparent;
   border: 1px solid rgba(245, 240, 232, 0.1);
 }
+
 .instagram-btn:hover {
   background: var(--color-surface);
   border-color: rgba(245, 240, 232, 0.2);
@@ -1927,7 +1977,7 @@ button {
   .order-platforms {
     grid-template-columns: 1fr;
   }
-  
+
   .hero-delivery {
     flex-direction: column;
     align-items: center;
@@ -2228,7 +2278,8 @@ button {
   .hamburger {
     display: flex;
     align-self: center;
-    margin-top: 4px; /* Precise optical alignment with logo tail */
+    margin-top: 4px;
+    /* Precise optical alignment with logo tail */
   }
 
   .about-grid {
@@ -2320,7 +2371,25 @@ button {
   }
 
   .menu-item {
-    padding: 1.5rem;
+    padding: 1.25rem 1.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  
+  .menu-item:hover {
+    padding-left: 1.75rem;
+  }
+  
+  .menu-item-price {
+    align-self: flex-end;
+    font-size: 1rem;
+  }
+  
+  .diet-icon {
+    width: 10px;
+    height: 10px;
+    margin-right: 0.6rem;
   }
 }
 
