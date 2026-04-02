@@ -588,6 +588,21 @@ button {
   }
 }
 
+.hero-address {
+  font-family: var(--font-body);
+  font-size: clamp(0.75rem, 1.2vw, 0.9rem);
+  color: var(--color-text-dim);
+  max-width: 600px;
+  margin: 1.5rem auto 0;
+  text-align: center;
+  line-height: 1.6;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroReveal 1s var(--ease-out-expo) 1s forwards;
+}
+
 @keyframes heroReveal {
   to {
     opacity: 1;
@@ -598,7 +613,7 @@ button {
 /* Scroll Indicator */
 .scroll-indicator {
   position: absolute;
-  bottom: 3rem;
+  bottom: 6rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 3;
