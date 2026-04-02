@@ -576,6 +576,24 @@ button {
   text-transform: uppercase;
   color: var(--color-cream);
   margin-bottom: 0.5rem;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 3rem;
+}
+
+.hero-title::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.95);
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: center;
+  animation: heroBgReveal 0.8s var(--ease-out-expo) 1.5s forwards;
+}
+
+@keyframes heroBgReveal {
+  to { transform: scaleX(1); }
 }
 
 .hero-title .char {
