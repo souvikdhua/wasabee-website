@@ -309,6 +309,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // === MAGNETIC BUTTONS ===
+  const magneticItems = document.querySelectorAll('.cta-btn, .insta-item, .nav-logo');
+  
+  magneticItems.forEach(item => {
+    item.addEventListener('mousemove', (e) => {
+      const position = item.getBoundingClientRect();
+      const x = e.pageX - position.left - position.width / 2;
+      const y = e.pageY - position.top - position.height / 2 - window.scrollY;
+      
+      item.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+    });
+    
+    item.addEventListener('mouseleave', () => {
+      item.style.transform = 'translate(0, 0)';
+    });
+  });
+
+
 });
 
 // === FADE IN UP KEYFRAME (used by JS) ===
