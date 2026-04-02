@@ -309,6 +309,35 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // === BRANDING SCROLL MOTION ===
+  const heroScrollText = document.querySelector('.hero-scroll-text');
+  const mainHeroTitle = document.querySelector('.hero-title');
+  
+  function updateBrandingScroll() {
+    const scrollY = window.scrollY;
+    
+    // Parallax branding text (Horizontal Move)
+    if (heroScrollText) {
+      const xOffset = scrollY * 0.4;
+      heroScrollText.style.transform = `translate(calc(-50% - ${xOffset}px), -55%)`;
+    }
+    
+    // Hero title scale and fade
+    if (mainHeroTitle) {
+      const scale = 1 + (scrollY * 0.001);
+      const opacity = 1 - (scrollY / 600);
+      
+      // We keep the initial Y translate from the reveal animation
+      mainHeroTitle.style.transform = `translateY(0) scale(${scale})`;
+      mainHeroTitle.style.opacity = opacity;
+    }
+  }
+
+  window.addEventListener('scroll', () => {
+    requestAnimationFrame(updateBrandingScroll);
+  }, { passive: true });
+
+
   // === MAGNETIC BUTTONS ===
   const magneticItems = document.querySelectorAll('.cta-btn, .insta-item, .nav-logo');
   

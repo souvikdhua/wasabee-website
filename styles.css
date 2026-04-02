@@ -634,6 +634,23 @@ button {
   padding: 0 2rem;
 }
 
+.hero-scroll-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  font-family: var(--font-display);
+  font-size: clamp(10rem, 25vw, 25rem);
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(245, 240, 232, 0.08);
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: -1;
+  letter-spacing: 0.1em;
+  will-change: transform;
+}
+
 .hero-jp {
   font-family: var(--font-jp);
   font-size: clamp(1.2rem, 2.5vw, 1.6rem);
@@ -649,12 +666,30 @@ button {
   font-family: var(--font-display);
   font-size: clamp(3.5rem, 10vw, 8rem);
   font-weight: 800;
-  letter-spacing: 0.08em;
-  line-height: 0.95;
-  text-transform: uppercase;
   color: var(--color-cream);
-  margin-bottom: 0.5rem;
+  letter-spacing: 0.2em;
+  line-height: 1;
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  animation: heroReveal 1.2s var(--ease-out-expo) 2.7s forwards;
+  transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+  will-change: transform, opacity;
 }
+
+.hero-subtitle {
+  font-family: var(--font-display);
+  font-size: clamp(0.9rem, 2vw, 1.2rem);
+  font-weight: 300;
+  letter-spacing: 0.8em;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroReveal 1s var(--ease-out-expo) 3s forwards;
+}
+
 
 .hero-title .char {
   display: inline-block;
