@@ -173,49 +173,6 @@ button {
   }
 }
 
-/* === CUSTOM CURSOR === */
-.cursor-dot {
-  width: 8px;
-  height: 8px;
-  background: var(--color-red);
-  border-radius: 50%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: transform 0.1s;
-  mix-blend-mode: difference;
-}
-
-.cursor-ring {
-  width: 40px;
-  height: 40px;
-  border: 1.5px solid rgba(198, 40, 40, 0.4);
-  border-radius: 50%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: width 0.3s, height 0.3s, border-color 0.3s;
-}
-
-.cursor-ring.hover {
-  width: 60px;
-  height: 60px;
-  border-color: var(--color-red);
-}
-
-@media (pointer: coarse) {
-
-  .cursor-dot,
-  .cursor-ring {
-    display: none;
-  }
-}
 
 /* === TOP BAR === */
 .top-bar {
@@ -1416,7 +1373,7 @@ button {
   width: 100vw;
   padding: 1.5rem 0;
   overflow: hidden;
-  background: #ffffff;
+  background: var(--color-red);
   position: absolute;
   bottom: 0;
   left: 0;
@@ -1459,7 +1416,7 @@ button {
 
 .hero-red-marquee a:hover {
   transform: scale(1.05);
-  color: var(--color-red);
+  color: #ffffff;
 }
 
 /* === ORDER ONLINE SECTION === */

@@ -7,38 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Start animations
   setTimeout(initAnimations, 100);
 
-  // === CUSTOM CURSOR ===
-  const cursorDot = document.querySelector('.cursor-dot');
-  const cursorRing = document.querySelector('.cursor-ring');
-  
-  if (cursorDot && cursorRing && window.matchMedia('(pointer: fine)').matches) {
-    let mouseX = 0, mouseY = 0;
-    let ringX = 0, ringY = 0;
-    
-    document.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      cursorDot.style.left = mouseX + 'px';
-      cursorDot.style.top = mouseY + 'px';
-    });
-    
-    // Smooth ring follow
-    function animateCursor() {
-      ringX += (mouseX - ringX) * 0.15;
-      ringY += (mouseY - ringY) * 0.15;
-      cursorRing.style.left = ringX + 'px';
-      cursorRing.style.top = ringY + 'px';
-      requestAnimationFrame(animateCursor);
-    }
-    animateCursor();
-    
-    // Hover effects
-    const hoverElements = document.querySelectorAll('a, button, .menu-item, .gallery-item, .feature-card, .cta-btn');
-    hoverElements.forEach(el => {
-      el.addEventListener('mouseenter', () => cursorRing.classList.add('hover'));
-      el.addEventListener('mouseleave', () => cursorRing.classList.remove('hover'));
-    });
-  }
 
   // === NAVIGATION ===
   const nav = document.querySelector('.nav');
