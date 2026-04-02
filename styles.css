@@ -237,8 +237,8 @@ button {
 
 /* === NAVIGATION === */
 .nav {
-  position: absolute;
-  top: 36px;
+  position: fixed;
+  top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
@@ -1289,6 +1289,113 @@ button {
 }
 
 /* === RESERVATION CTA === */
+/* === REVIEWS SECTION === */
+.reviews-section {
+  background: #ffffff;
+  padding: 2rem 0 6rem 0;
+  overflow: hidden;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.reviews-marquee-container {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding: 1rem 0 3rem 0;
+}
+
+.reviews-track {
+  display: flex;
+  gap: 2rem;
+  padding-left: 2rem;
+  animation: reviewMarquee 40s linear infinite;
+  white-space: normal;
+  width: max-content;
+}
+
+.reviews-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes reviewMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 1rem)); }
+}
+
+.review-card {
+  width: 380px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-decoration: none;
+  color: #0a0a0a;
+  transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.reviewer-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.reviewer-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.reviewer-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.reviewer-source {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: #777;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.2rem;
+}
+
+.review-stars {
+  color: #fbbc04;
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+}
+
+.review-text {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333;
+  font-style: italic;
+}
+
 .reservation {
   position: relative;
   padding: 8rem 3rem;
