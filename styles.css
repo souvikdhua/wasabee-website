@@ -228,7 +228,7 @@ button {
   display: flex;
   justify-content: center;
   border-bottom: 1px solid rgba(245, 240, 232, 0.05);
-  background: var(--color-bg);
+  background: #000000;
 }
 
 .top-bar-content {
@@ -289,15 +289,15 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transition: top 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.5s, padding 0.5s, backdrop-filter 0.5s;
+  background: #000000;
+  transition: top 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.5s;
 }
 
 .nav.scrolled {
   top: 0;
-  background: rgba(10, 10, 10, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: #000000;
   padding: 1rem 3rem;
+  border-bottom: 1px solid rgba(245, 240, 232, 0.05);
 }
 
 .nav-logo {
