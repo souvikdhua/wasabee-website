@@ -1433,7 +1433,14 @@ button {
 
 /* === ORDER ONLINE SECTION === */
 .order-section {
-  background: var(--color-bg);
+  background: #ffffff;
+  padding-top: 5rem;
+}
+
+.order-section .section-label,
+.order-section .section-title,
+.order-section .section-text {
+  color: #0a0a0a;
 }
 
 .order-platforms {
@@ -1449,17 +1456,24 @@ button {
   flex-direction: column;
   justify-content: space-between;
   padding: 2rem;
-  border: 1px solid rgba(245, 240, 232, 0.08);
-  border-radius: 4px;
-  background: var(--color-surface);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background: #f8f8f8;
   transition: all 0.5s var(--ease-out-expo);
   text-decoration: none;
   min-height: 180px;
 }
 
+.platform-card .platform-cta,
+.platform-card .platform-rating span {
+  color: #0a0a0a;
+}
+
 .platform-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(245, 240, 232, 0.15);
+  border-color: rgba(0, 0, 0, 0.2);
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 .zomato-card:hover {
