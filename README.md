@@ -1,4 +1,4 @@
-# WASABEE — Oriental Cuisine · Kolkata
+# WASABEE - Oriental Cuisine · Kolkata
 
 > *A cinematic, motion-rich restaurant website built for a premium dining experience.*
 
@@ -6,14 +6,14 @@
 
 ## 🎯 The Vision
 
-Wasabee is not just a restaurant — it's an experience. The website needed to reflect that identity completely. Inspired by the legendary **[Sushi Jiro](https://www.sushi-jiro.jp)** website — one of the most beautiful and minimal restaurant sites in the world — the goal was to build something that felt:
+Wasabee is not just a restaurant - it's an experience. The website reflects that identity completely. Inspired by the legendary **[Sushi Jiro](https://www.sushi-jiro.jp)** website - one of the most beautiful and minimal restaurant sites in the world - the goal was to build something that feels:
 
-- **Cinematic** — every scroll should feel like a film sequence
-- **Minimal** — nothing unnecessary, every element earns its place
-- **Authentic** — rooted in Japanese/Oriental visual language with Kanji accents, red ink aesthetic, and editorial typography
-- **Functional** — not just beautiful, but conversion-ready with direct ordering links to Zomato, Swiggy, WhatsApp, and Google Maps
+- **Cinematic** - every scroll feels like a film sequence
+- **Minimal** - nothing unnecessary, every element earns its place
+- **Artwork** - a unified "digital artwork" aesthetic using film noise, frosted glass, and custom interactive cursor
+- **Authentic** - rooted in Oriental visual language with Noto Sans JP accents and a sharp, uniform geometric Sans-Serif typography system
 
-The client's brand identity is deeply tied to **red** — a bold, high-contrast palette drawn from traditional Japanese art and Japanese street posters. The brand artwork (koi fish, Japanese umbrellas, gyoza, Wasabee wordmark in red line art) directly influences the entire visual tone of the site.
+The client's brand identity is deeply tied to **red** - a bold, high-contrast palette drawn from traditional Japanese art. This influenced the decision to use a 100% uniform dark theme (`#0a0a0a`) with brand-red accents and cream typography.
 
 ---
 
@@ -28,35 +28,22 @@ The client's brand identity is deeply tied to **red** — a bold, high-contrast 
 
 ---
 
-## 📍 Locations & Contact
-
-| Branch | Address | Phone |
-|--------|---------|-------|
-| **Bypass – South City Connector** | 30, Arya Vidyalaya Road, Kolkata 700 078 (Opp. National Furniture) | 9163764444 · 9831626544 |
-| **Deshapriya Park** | Kolkata | 9073948146 · 9163000200 |
-| **Corporate / Events** | — | +91 89813 59413 |
-| **Website** | [wasabee.in](http://www.wasabee.in) | — |
-
----
-
 ## 🏗️ Project Architecture
 
 ```
 wasabee/
-├── index.html        # Single-page application — all sections
-├── styles.css        # Full design system + component styles (~2100 lines)
-├── script.js         # All JS animations, interactions, observers
+├── index.html        # Single-page application - all sections
+├── styles.css        # Full design system + luxury components (~2350 lines)
+├── script.js         # Interactive cursor, scroll progress, animations
 └── images/
     ├── wasabee logo .svg       # Official Wasabee wordmark (SVG)
-    ├── wasabee-brand.jpg       # Brand graphic (koi, umbrellas, gyoza) 
-    ├── lucky-cat.jpg           # Red Maneki-neko cat poster (Hero BG)
-    ├── noodles-cat.jpg         # "Noodles For Life" cat illustration
-    ├── sushi-poster.jpg        # Sushi dictionary illustration poster
-    ├── menu-card.jpg           # NOM menu card artwork
+    ├── slide 1.jpg             # Hero Slider 1
+    ├── slide 2.jpg             # Hero Slider 2
+    ├── slide. 3.jpg            # Hero Slider 3 (Instagram Grid source)
+    ├── whatsapp-logo.svg       # Official WhatsApp brand SVG
+    ├── google-maps-2020-icon.svg # Official Google Maps pin SVG
     ├── zomato-1.svg            # Official Zomato brand SVG
-    ├── swiggy-1.svg            # Official Swiggy brand SVG
-    ├── google-maps-logo.svg    # Official Google Maps pin SVG
-    └── whatsapp-logo.svg       # Official WhatsApp brand SVG
+    └── swiggy-1.svg            # Official Swiggy brand SVG
 ```
 
 ---
@@ -66,149 +53,74 @@ wasabee/
 ### Color Palette
 | Token | Value | Usage |
 |-------|-------|-------|
-| `--color-bg` | `#0a0a0a` | Primary background |
-| `--color-surface` | `#111111` | Cards, overlays |
-| `--color-red` | `#c62828` | Primary brand accent |
-| `--color-red-bright` | `#e53935` | Hover states, highlights |
-| `--color-cream` | `#f5f0e8` | Primary text |
-| `--color-gold` | `#d4a574` | Prices, special accents |
-| `--color-text-muted` | `#9e9e9e` | Secondary text |
-| `--color-text-dim` | `#616161` | Tertiary text |
+| `--color-bg` | `#0a0a0a` | Primary background (Deep Black) |
+| `--color-surface` | `#141414` | Cards, surfaces |
+| `--color-red` | `#c62828` | Primary brand accent (Stars, Progress, Buttons) |
+| `--color-cream` | `#f5f0e8` | Primary text (Off-white) |
+| `--color-text-dim` | `#5a5650` | Tertiary descriptions |
 
-### Typography
+### Typography (100% Uniform Sans-Serif)
 | Font | Role | Source |
 |------|------|--------|
-| **Playfair Display** | Headings, brand | Google Fonts |
-| **Inter** | Body copy, UI labels | Google Fonts |
-| **Noto Serif JP** | Japanese Kanji accents | Google Fonts |
+| **Inter** | Global headings, body, UI | Google Fonts |
+| **Noto Sans JP** | Japanese Kanji accents | Google Fonts |
 
-### Motion Language
-All animations use a custom cubic-bezier `--ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1)` for a signature deceleration feel — smooth, authoritative, premium.
+*Policy: The UI is strictly punctuation-flat. Zero em-dashes and zero hyphens in visible text content to maintain a modern, clean agency-grade aesthetic.*
+
+---
+
+## ✨ Cinematic Features
+
+### 1. Interactive Custom Cursor
+A high-performance, 3D-transformed cursor that follows the mouse with a slight easing effect.
+- **Magnetic reaction**: Expands and blurs when hovering over interactive elements (buttons, menu items, gallery).
+
+### 2. Pro Frosted Glass Navigation
+Fixed header with `backdrop-filter: blur(20px)` and semi-translucent background. Creates a premium layer effect as content scrolls underneath.
+
+### 3. Infinite Reviews Marquee
+A horizontally scrolling ticker of real Google Maps reviews, styled as minimal dark cards with brand-red integration.
+
+### 4. "Our World" Instagram Feed
+A visual 2x2 grid (mobile) and 4-item list (desktop) pulling from local high-res assets, integrated with social follow CTAs.
+
+### 5. Molecular Pricing Alignment
+All menu prices use `font-variant-numeric: tabular-nums` for perfect vertical alignment of digits.
 
 ---
 
 ## 📄 Page Sections
 
-### 1. `#hero` — Full Screen Hero
-- **Background**: Red Maneki-neko cat poster (Ken Burns slow zoom animation)
-- **Overlay**: Multi-stop gradient for depth
-- **Content**: Japanese Kanji subtitle → WASABEE title (character-by-character reveal)
-- **Action Marquee**: An edge-to-edge red ticker pinned to the bottom of the hero overlay. Features infinitely scrolling, pause-on-hover bold typography for Google Maps (4.5★), Zomato, Swiggy, WhatsApp.
-
-### 2. `#about` — About Wasabee
-- Split grid: Brand image left, story copy right
-- Red decorative border offset on image
-- Animated stat counters (years of excellence, dishes, etc.)
-- Japanese character watermark
-
-### 3. `#menu` — Full Menu with Category Filter
-All 60+ menu items across 8 categories:
-
-| Category | Items |
-|----------|-------|
-| **Dumplings** | Gyoza, Siu Mai, Prawn Har Gow, Xiao Long Bao, Bao Buns |
-| **Korean Sushi** | Kimbap varieties, Korean Spicy Rolls |
-| **Japanese Sushi** | Sushi Platter, Uramaki, California, Buta No Tempura, Chicken Teriyaki, Nigiri, Maki, Tamaki, Futomaki, Philadelphia |
-| **Korean Mains** | Bibimbap, Tteokbokki, Korean Fried Rice, Japchae, Kimchi Fried Rice |
-| **Japanese Classics** | Tonkatsu, Chicken Katsu, Ramen (various), Tempura, Yakitori |
-| **Thai / Pan Asian** | Pad Thai, Thai Curries, Tom Yum, Som Tum |
-| **Chinese** | Dim Sum, Spring Rolls, Hakka Noodles, Manchurian |
-| **Desserts** | Mochi, Matcha, Korean Bingsu |
-
-### 4. `#gallery` — Image Gallery
-- 4-column masonry-style grid with lightbox
-- Hover overlay with title reveal
-- Click to expand in full-screen lightbox
-
-### 5. `#features` — Brand Feature Cards
-- Three editorial cards: Space / Experience / Craft
-- Hover lift with red title color transition
-
-### 6. `#order` — Order Online
-- Delivery platform cards: Zomato, Swiggy, Google Maps
-- Real ratings, brand logos, CTAs
-
-### 7. `#reservation` — Reserve a Table
-- Elegant CTA with animated red fill button
-
-### 8. `#contact` — Access / Locations
-- Both location addresses and phone numbers
-- Embedded Google Maps (dark-filtered, full-color on hover)
-- Operating hours grid
-
----
-
-## ✨ Key Interactions & Animations
-
-| Feature | Implementation |
-|---------|----------------|
-| **Preloader** | WASABEE wordmark → red line reveals → fade out |
-| **Custom cursor** | Red magnetic dot + ring that follows with lag (desktop only) |
-| **Character reveal** | Hero title letters fly up one by one with staggered delay |
-| **Scroll reveal** | `IntersectionObserver` triggers fade/slide/scale on viewport entry |
-| **Parallax** | `data-parallax` attribute system on section backgrounds |
-| **Ken Burns** | Hero image slowly zooms and pans over 25s |
-| **Counter animation** | Stats count up from 0 with easeOutExpo curve |
-| **Magnetic buttons** | CTA buttons physically follow mouse cursor |
-| **Gallery lightbox** | Click-to-expand with `<Escape>` to close |
-| **Menu filter** | Category tabs instantly show/hide items with `fadeInUp` animation |
-| **Marquee** | Red ticker strip with auto-duplicated content |
-| **Hamburger menu** | Full-screen dark overlay with link stagger |
+- `#hero`: Multi-slide cinematic slider with Ken Burns animation and logo reveal.
+- `#about`: The Wasabee story with animated stat counters.
+- `#menu`: 100+ items across 8 categories with an instant filtering system.
+- `#gallery`: High-resolution masonry grid showcasing The Wasabee Identity.
+- `#experience`: Editorial feature cards with directional hover interactions.
+- `#our-world`: Live-style Instagram grid with direct follow links.
+- `#order`: High-contrast ordering platform cards (Zomato, Swiggy, Google).
+- `#reservation`: Minimalist CTA for table bookings.
+- `#contact`: Location grid with dark-filtered embedded maps and operational hours.
 
 ---
 
 ## 🚀 Deployment
 
-### Local Development
-```bash
-# Navigate to project
-cd "/Users/souvik/Documents/untitled folder/wasabee"
-
-# Serve locally (Node.js)
-npx serve .
-# or
-python3 -m http.server 3000
-```
-Open `http://localhost:3000`
+The site is built with **Pure HTML · CSS · JavaScript** - no frameworks, no dependencies.
 
 ### GitHub
 Repository: [github.com/souvikdhua/wasabee-website](https://github.com/souvikdhua/wasabee-website)
 
-```bash
-# Push updates
-git add .
-git commit -m "your message"
-git push origin main
-```
-
 ### Netlify
-1. Connect GitHub repo at [app.netlify.com](https://app.netlify.com)
-2. Build command: *(leave blank)*
-3. Publish directory: `.`
-4. Auto-deploys on every `git push`
-
----
-
-## 🗺️ Roadmap / Future Enhancements
-
-- [ ] Online reservation form with email notification
-- [ ] WhatsApp order button with pre-filled menu message
-- [ ] Multi-language toggle (English / Japanese / Bengali)
-- [ ] Admin CMS for menu updates (Netlify CMS / Contentful)
-- [ ] Instagram feed integration in Gallery section
-- [ ] SEO optimization — Google Search Console setup
-- [ ] Performance audit — image WebP conversion, lazy loading
-- [ ] Mobile gesture enhancements (swipe gallery)
+Auto-deployed on every `git push` to the `main` branch.
 
 ---
 
 ## 👤 Credits
 
 **Brand & Vision**: Wasabee Oriental Cuisine, Kolkata  
-**Design Inspiration**: [sushi-jiro.jp](https://www.sushi-jiro.jp)  
-**Development**: Built with pure HTML · CSS · JavaScript — no frameworks, no dependencies  
-**Fonts**: Google Fonts (Playfair Display, Inter, Noto Serif JP)
+**Inspiration**: [sushi-jiro.jp](https://www.sushi-jiro.jp)  
+**Development**: Digital artwork polish by Antigravity AI  
 
 ---
 
-*"Good design is as little design as possible."* — Dieter Rams
+*"Good design is as little design as possible."* - Dieter Rams
